@@ -1,0 +1,163 @@
+# Arquivos de configuração sensíveis
+.env
+.env.local
+.env.production
+.env.staging
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribuição / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Ambientes virtuais
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Node.js downloads (arquivos baixados pela aplicação)
+# Descomente as linhas abaixo se não quiser versionar os downloads
+# *.zip
+# node-*/
+# v*/
+
+# Diretórios de teste locais
+test_downloads/
+temp_downloads/
+local_nodejs/
+
+# Arquivos temporários do Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Arquivos temporários do macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Arquivos temporários do Linux
+*~
+
+# Logs da aplicação
+*.log
+logs/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+
+# Arquivos de configuração específicos do usuário
+config.ini
+settings.json
+
+# Credenciais e chaves
+credentials.json
+keys/
+secrets/
+*.pem
+*.key
+
+# Arquivos de teste que não devem ser versionados
+test_*.local.py
+debug_*.py
+
+# Arquivos de exemplo que foram personalizados
+.env.personal
+config.personal.*
