@@ -1,6 +1,6 @@
-# 🚀 Node.js Version Manager (NVM) - Python
+# 🚀 Gerenciador de downloads do Node.js Versões Antigas para ser usadocom NVM - Python
 
-Uma aplicação Python para download automático de versões específicas do Node.js, especialmente projetada para ambientes corporativos com proxy.
+Uma aplicação Python para download automático de versões específicas do Node.js.
 
 ## ⚡ Início Rápido
 
