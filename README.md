@@ -1,6 +1,83 @@
-# 🚀 Gerenciador de downloads do Node.js Versões Antigas para ser usadocom NVM - Python
+# 🚀 Gerenciador de downloads do Node.js Versões Antigas para ser usado com NVM - Python
 
 Uma aplicação Python para download automático de versões específicas do Node.js.
+
+## 📋 Pré-requisitos
+
+### 🐍 **Python**
+
+Esta aplicação requer Python 3.6 ou superior:
+
+```bash
+# Verificar se Python está instalado
+python --version
+# ou
+py --version
+
+# Se não estiver instalado, baixe em:
+# https://www.python.org/downloads/
+```
+
+### 💻 **Sistema Operacional**
+
+- ✅ **Windows 10/11** (testado e recomendado)
+- ✅ **Windows 8.1/Server** (compatível)
+- ❓ **Linux/macOS** (não testado, mas pode funcionar)
+
+## 📥 Instalação
+
+### 1. **Clone ou Baixe o Repositório**
+
+```bash
+# Opção 1: Clone via Git
+git clone https://github.com/danivaldosousa/nodes-nvm-download.git
+cd nodes-nvm-download
+
+# Opção 2: Download direto
+# Baixe o ZIP do GitHub e extraia
+```
+
+### 2. **Verificar Estrutura dos Arquivos**
+
+Certifique-se que você tem os seguintes arquivos:
+
+```
+nodes-nvm-download/
+├── 📄 node.py              # ⭐ Aplicação principal
+├── 📄 .env.example         # ⭐ Modelo de configuração
+├── 📄 .env.simple          # ⭐ Configuração simples
+├── 📄 install_check.py     # 🔧 Verificação de instalação
+├── 📄 README.md            # 📖 Documentação
+├── 📄 requirements.txt     # 📦 Dependências (opcional)
+├── 📄 config_examples.py   # 🔧 Exemplos de configuração
+├── 📄 demo_funcionamento.py # 🎯 Demonstração
+└── 📄 .gitignore           # 🚫 Arquivos ignorados
+```
+
+### 3. **Instalar Dependências (Opcional)**
+
+A aplicação funciona apenas com bibliotecas padrão do Python, mas você pode instalar dependências extras para melhor experiência:
+
+```bash
+# Opcional: Para barra de progresso avançada
+pip install -r requirements.txt
+
+# Ou instalação manual:
+pip install requests tqdm
+```
+
+**⚠️ Nota:** Se você estiver em uma rede corporativa e não conseguir instalar via pip, a aplicação funcionará normalmente sem essas dependências.
+
+### 4. **Verificar Instalação**
+
+```bash
+# Teste automatizado - verifica tudo de uma vez
+py install_check.py
+
+# Ou testes manuais:
+py node.py --help
+py demo_funcionamento.py
+```
 
 ## ⚡ Início Rápido
 
@@ -29,6 +106,53 @@ copy .env.example .env
 ```bash
 py node.py 18.17.0
 ```
+
+## ✅ Testando a Instalação
+
+Após a instalação, teste se tudo está funcionando:
+
+### 🧪 **Teste Básico**
+
+```bash
+# 1. Verifique se a aplicação responde
+py node.py --help
+
+# 2. Execute a demonstração offline (sem internet)
+py demo_funcionamento.py
+
+# 3. Veja exemplos de configuração
+py config_examples.py
+```
+
+### 🌐 **Teste com Download Real**
+
+```bash
+# Para redes sem proxy
+py node.py 18.17.0
+
+# Para redes com proxy (configure .env primeiro)
+copy .env.example .env
+# Edite o .env, depois:
+py node.py 18.17.0
+```
+
+### 📁 **Verificar Resultado**
+
+Se tudo funcionou, você deve ter:
+
+```
+d:/nvm/v18.17.0/
+├── 📄 node.exe
+├── 📄 npm.cmd
+├── 📁 node_modules/
+└── 📄 outros arquivos...
+```
+
+### 🚨 **Se algo der errado:**
+
+1. **Verifique a seção "Problemas de Instalação" abaixo**
+2. **Execute a demonstração offline:** `py demo_funcionamento.py`
+3. **Consulte os exemplos:** `py config_examples.py`
 
 ---
 
@@ -369,7 +493,91 @@ py node.py --dir=c:/temp/node 20.9.0
 py node.py --proxy=http://user:pass@proxy:8080 20.9.0
 ```
 
-## 🔍 Resolução de Problemas
+## �️ Problemas de Instalação
+
+### ❌ **Python não encontrado**
+
+**Erro:** `'python' is not recognized as an internal or external command`
+
+**Soluções:**
+
+1. **Instalar Python:**
+   - Baixe em: https://www.python.org/downloads/
+   - ✅ Marque "Add Python to PATH" durante instalação
+
+2. **Verificar instalação:**
+```bash
+python --version
+py --version
+python3 --version
+```
+
+3. **Usar comando alternativo:**
+```bash
+# Se python não funcionar, tente:
+py node.py 18.17.0
+python3 node.py 18.17.0
+```
+
+### ❌ **Erro ao instalar dependências via pip**
+
+**Erro:** `pip install failed` ou `proxy error`
+
+**Soluções:**
+
+1. **Usar sem dependências extras:**
+```bash
+# A aplicação funciona apenas com Python padrão
+py node.py 18.17.0
+```
+
+2. **Configurar proxy para pip:**
+```bash
+pip install --proxy http://user:pass@proxy:8080 requests tqdm
+```
+
+3. **Instalar apenas para o usuário:**
+```bash
+pip install --user requests tqdm
+```
+
+### ❌ **Permissão negada ao executar**
+
+**Erro:** `Permission denied` ou `Access is denied`
+
+**Soluções:**
+
+1. **Executar como administrador:**
+   - Clique direito no PowerShell → "Executar como administrador"
+
+2. **Usar diretório com permissão:**
+```bash
+# Configure no .env um diretório acessível
+NVM_DIR=c:/temp/nodejs
+```
+
+3. **Verificar antivírus:**
+   - Adicione o diretório do projeto às exceções
+
+### ❌ **Arquivo node.py não encontrado**
+
+**Erro:** `can't open file 'node.py': [Errno 2] No such file or directory`
+
+**Soluções:**
+
+1. **Verificar diretório atual:**
+```bash
+# Certifique-se que está na pasta do projeto
+cd path/to/nodes-nvm-download
+dir  # Deve mostrar node.py
+```
+
+2. **Usar caminho completo:**
+```bash
+py c:/caminho/completo/para/node.py 18.17.0
+```
+
+## �🔍 Resolução de Problemas
 
 ### ❌ Erro: "Tunnel connection failed: 407 authenticationrequired"
 
